@@ -4,12 +4,12 @@
 </p>
 
 # Link API Untuk DEMO 
+```
+Halaman Awal http://localhost:8000/ 
+Buat Login http://localhost::8000/login
+Halaman Home http://localhost::8000/home 
 
-| Description        |    URL        |
-| ------------- |:-------------:| -----:|
-| Halaman Awal | http://localhost:8000/ |
-| Buat Login   | http://localhost::8000/login      |
-| Halaman Home | http://localhost::8000/home    |
+```
 
 
 # Install Aplikasi
