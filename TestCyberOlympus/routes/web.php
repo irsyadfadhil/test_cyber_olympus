@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('customers/list', [CustomerController::class, 'list']);
     Route::get('customers/destroy/{id}', [CustomerController::class, 'destroy']);
     Route::get('customers/edit/{id}', [CustomerController::class, 'edit']);
+    Route::get('customers/update/{id}', [CustomerController::class, 'update']);
 
     Route::resource('customers', CustomerController::class)->except(['show'])->parameters(['customers' => 'customers']);
 });

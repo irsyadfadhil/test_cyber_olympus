@@ -17,9 +17,11 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'id' => '1',
-                'name' => 'ichad',
+                'first_name' => 'ichad',
+                'last_name' => 'Fadil',
                 'email' => 'admin@cyberolympus.com ',
                 'password' => bcrypt('cyberadmin'),
+                'account_type' => '0',
             ]
         ]);
     }

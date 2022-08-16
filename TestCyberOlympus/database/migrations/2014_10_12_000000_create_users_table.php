@@ -15,9 +15,10 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->start_from(50000);
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->unsignedBigInteger('id')->start_from(50000)->unique();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('pin')->nullable();
@@ -30,6 +31,8 @@ class CreateUsersTable extends Migration
             $table->string('account_status')->nullable();
             $table->string('fcm_token')->nullable();
             $table->rememberToken();
+            $table->string('password_reset_code');
+            $table->string('device_token');
             $table->timestamps();
             $table->softDeletes();
         });

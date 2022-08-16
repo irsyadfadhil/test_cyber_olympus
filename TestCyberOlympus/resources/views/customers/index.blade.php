@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel 6 Ajax CRUD Example</title>
     {{-- <meta name="csrf-token" content=""> --}}
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
@@ -16,14 +15,13 @@
 <body>
 {{-- @section('content') --}}
 <div class="container">
-    <h1>Laravel 6 Ajax CRUD </h1>
+    <a class="btn btn-primary" href="{{route('home')}}" >Back</a>
     <a class="btn btn-success" href="javascript:void(0)" id="createNewCustomer"> Create New Customer</a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
                 <th>No</th>
                 <th>Name</th>
-                <th>Details</th>
                 <th width="280px">Action</th>
             </tr>
         </thead>
@@ -31,62 +29,8 @@
         </tbody>
     </table>
 </div>
-
-<div class="modal fade" id="ajaxModel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="modelHeading"></h4>
-            </div>
-            <div class="modal-body">
-                <form id="CustomerForm" name="CustomerForm" class="form-horizontal">
-                   {{-- <input type="hidden" name="Customer_id" id="Customer_id"> --}}
-
-                   <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Customerid</label>
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control" id="Customer_id" name="Customer_id" placeholder="Enter Customerid" value="" maxlength="50" required="">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Name</label>
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" value="" maxlength="50" required="">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">email</label>
-                        <div class="col-sm-12">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="" maxlength="50" required="">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">phone</label>
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" value="" maxlength="50" required="">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Address</label>
-                        <div class="col-sm-12">
-                            <textarea id="address" name="address" required="" placeholder="Enter Address" class="form-control"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-offset-2 col-sm-10">
-                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Save changes
-                     </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
+<@include('customers.edit')
+<@include('customers.create')
 </body>
 
 <script type="text/javascript">
@@ -104,8 +48,7 @@
         ajax: "",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            {data: 'name', name: 'name'},
-            {data: 'phone', name: 'phone'},
+            {data: 'first_name', name: 'first_name'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
@@ -113,6 +56,9 @@
     $('#createNewCustomer').click(function () {
         $('#saveBtn').val("create-Customer");
         $('#Customer_id').val('');
+        $('#email').show();
+        $('#email_label').show();
+
         $('#CustomerForm').trigger("reset");
         $('#modelHeading').html("Create New Customer");
         $('#ajaxModel').modal('show');
@@ -125,14 +71,32 @@
           $('#saveBtn').val("edit-user");
           $('#ajaxModel').modal('show');
           $('#Customer_id').val(data.id);
-          $('#name').val(data.name);
-          $('#detail').val(data.detail);
+          $('#first_name').val(data.first_name);
+          $('#last_name').val(data.last_name);
+          $('#email').hide();
+          $('#email_label').hide();
+          $('#phone').val(data.phone);
+          $('#address').val(data.address);
       })
-   });
+    });
+
+    $('body').on('click', '.showCustomer', function () {
+      var Customer_id = $(this).data('id');
+      $.get(`{{ url('customers/edit') }}/${Customer_id}`, function (data) {
+          $('#editHeading').html("Show Customer");
+          $('#edit').modal('show');
+          $('#Customer_id_edit').val(data.id);
+          $('#first_name_edit').val(data.first_name);
+          $('#last_name_edit').val(data.last_name);
+          $('#email_edit').val(data.email);
+          $('#phone_edit').val(data.phone);
+          $('#address_edit').val(data.address);
+      })
+    });
 
     $('#saveBtn').click(function (e) {
         e.preventDefault();
-        $(this).html('Sending..');
+        // $(this).html('Sending..');
 
         $.ajax({
           data: $('#CustomerForm').serialize(),

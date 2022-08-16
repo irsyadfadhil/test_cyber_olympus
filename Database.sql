@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `agent`
 --
 
-CREATE TABLE `agent` (
+CREATE TABLE `agents` (
   `id` int(11) NOT NULL,
   `store_name` varchar(255) DEFAULT NULL,
   `partner_id` varchar(50) DEFAULT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE `agent` (
 -- Dumping data for table `agent`
 --
 
-INSERT INTO `agent` (`id`, `store_name`, `partner_id`, `pin_lock`, `store_open`, `store_close`, `address`, `kelurahan`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `latitude`, `longitude`, `ktp`, `kk`, `npwp`, `no_rekening`, `buku_rekening`, `point`, `credit_limit`, `subscription`, `max_load`, `default_agent`) VALUES
+INSERT INTO `agents` (`id`, `store_name`, `partner_id`, `pin_lock`, `store_open`, `store_close`, `address`, `kelurahan`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `latitude`, `longitude`, `ktp`, `kk`, `npwp`, `no_rekening`, `buku_rekening`, `point`, `credit_limit`, `subscription`, `max_load`, `default_agent`) VALUES
 (15105, 'Heri store', 'MYR0011', '123456', '08:00:00', '20:00:00', 'Jl. Talaga', 'KALI BARU', 'CILINCING', 'JAKARTA SELATAN', 'DKI JAKARTA', '12345', '-6.1837421735978015', '106.70976921916008', NULL, NULL, NULL, NULL, NULL, 200, 5000000, 'silver', 300, 0),
 (15107, 'Meyer Jogja', 'MYR0012', '123456', '08:00:00', '17:00:00', 'Jalan Woltermonginsidi 14 Yogyakarta', 'KALI BARU', 'CILINCING', 'JAKARTA TIMUR', 'DKI JAKARTA', '55186', '-7.787984993433525', '110.35889458249517', NULL, NULL, NULL, NULL, NULL, 8900, 5000000, 'platinum', 300, 0),
 (15108, 'Meyer Pusat', 'MYR0013', '123456', '09:00:00', '22:00:00', 'Ini alamatnya: Rukan Wallstreet Blok A No. 29 Lt. 2,  Green Lake City , Petir - Cipondoh,  Tangerang - Banten', 'PAKU JAYA', 'SERPONG UTARA', 'KEPULAUAN SERIBU', 'DKI JAKARTA', '15147', '-6.1835848440111585', '106.7097544670105', NULL, NULL, NULL, NULL, NULL, 37400, 5000000, 'platinum', 300, 1),
@@ -72,7 +72,7 @@ INSERT INTO `agent` (`id`, `store_name`, `partner_id`, `pin_lock`, `store_open`,
 -- Table structure for table `customer`
 --
 
-CREATE TABLE `customer` (
+CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
   `referral_id` int(11) DEFAULT NULL,
   `address` varchar(500) DEFAULT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`id`, `referral_id`, `address`, `kelurahan`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `latitude`, `longitude`, `no_rekening`, `buku_rekening`, `point`, `default_address`) VALUES
+INSERT INTO `customers` (`id`, `referral_id`, `address`, `kelurahan`, `kecamatan`, `kota`, `provinsi`, `kode_pos`, `latitude`, `longitude`, `no_rekening`, `buku_rekening`, `point`, `default_address`) VALUES
 (15039, NULL, 'Paten RT 05 Timbulharjo Sewon Bantul', 'TImbulharjo', 'Sewon', 'Bantul', 'Yogyakarta', '55186', NULL, NULL, NULL, NULL, 1800, NULL),
 (15044, NULL, 'Jalan Boulevard', 'KELAPA GADING TIMUR', 'KELAPA GADING', 'JAKARTA UTARA', 'DKI JAKARTA', '14240', '-6.152969681380213', '106.90839728570563', NULL, NULL, NULL, 0),
 (15047, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
@@ -637,7 +637,7 @@ INSERT INTO `orders` (`id`, `invoice_id`, `customer_id`, `name`, `phone`, `addre
 -- Table structure for table `order_detail`
 --
 
-CREATE TABLE `order_detail` (
+CREATE TABLE `order_details` (
   `id` int(11) NOT NULL,
   `product_id` int(11) DEFAULT NULL,
   `order_id` int(11) DEFAULT NULL,
@@ -651,7 +651,7 @@ CREATE TABLE `order_detail` (
 -- Dumping data for table `order_detail`
 --
 
-INSERT INTO `order_detail` (`id`, `product_id`, `order_id`, `price`, `price_agent`, `qty`, `total_price`) VALUES
+INSERT INTO `order_details` (`id`, `product_id`, `order_id`, `price`, `price_agent`, `qty`, `total_price`) VALUES
 (527, 46, 39990063, 40000, 40000, 1, 40000),
 (528, 46, 39990064, 40000, 40000, 2, 80000),
 (529, 46, 39990065, 40000, 40000, 3, 120000),
@@ -997,7 +997,7 @@ INSERT INTO `order_detail` (`id`, `product_id`, `order_id`, `price`, `price_agen
 -- Table structure for table `product`
 --
 
-CREATE TABLE `product` (
+CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `product_name` varchar(255) DEFAULT NULL,
   `category` int(11) DEFAULT NULL,
@@ -1019,7 +1019,7 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `product_name`, `category`, `type`, `item`, `weight`, `sku`, `price_sell`, `price_promo`, `price_agent`, `photo`, `recommendation`, `description`, `status`, `ordering`) VALUES
+INSERT INTO `products` (`id`, `product_name`, `category`, `type`, `item`, `weight`, `sku`, `price_sell`, `price_promo`, `price_agent`, `photo`, `recommendation`, `description`, `status`, `ordering`) VALUES
 (1, 'Karkas ukuran  0,5 - 0,6', 1, 'fresh', 'pack', 0.5, 'SKU000101010', 18000, 0, 17000, 'images/product-2019-09-26-113231.jpg', NULL, 'Kenalan Yuk!\r\n\r\nAyam karkas ukuran 0.5-0.6 kg dari Meyer Food biasa dipotong 4 cocok untuk penggunaan rumah makan Padang atau bisa juga untuk kamu yang mau masak ayam bakar atau goreng di rumah. \r\nAyam Karkas adalah ayam potong utuh yang telah dibersihkan tanpa jeroan, ceker, kepala, darah, dan bulu. Semua ayam fresh yang dipotong di malam hari lalu dikirim keesokan harinya. Dilengkapi dengan sertifikasi Halal dan NKV, ayam karkas ini terbebas dari virus flu burung, higienis, serta melalui proses pemotongan yang modern dan terbebas dari zat berbahaya.', '0', NULL),
 (2, 'Karkas ukuran  0,6 - 0,7', 1, 'fresh', 'pack', 0.6, 'SKU000101010', 20500, 0, 19500, 'images/product-2019-09-26-113159.jpg', NULL, 'Kenalan Yuk!\r\n\r\nAyam karkas ukuran 0.6-0.7 kg dari Meyer Food biasa dipotong 4 cocok untuk penggunaan pecel ayam dan rumah makan Padang atau bisa juga untuk kamu yang mau masak ayam bakar atau goreng di rumah. \r\nAyam Karkas adalah ayam potong utuh yang telah dibersihkan tanpa jeroan, ceker, kepala, darah, dan bulu. Semua ayam fresh yang dipotong di malam hari lalu dikirim keesokan harinya. Dilengkapi dengan sertifikasi Halal dan NKV, ayam karkas ini terbebas dari virus flu burung, higienis, serta melalui proses pemotongan yang modern dan terbebas dari zat berbahaya.', '0', NULL),
 (3, 'Karkas ukuran  0,7 - 0,8', 1, 'fresh', 'pack', 0.7, 'SKU000101010', 25000, 0, 24000, 'images/product-2019-09-26-113126.jpg', NULL, 'Kenalan Yuk!\r\n\r\nAyam karkas ukuran 0.7-0.8 kg dari Meyer Food biasa dipotong 4 cocok untuk penggunaan pecel ayam atau bisa juga untuk kamu yang mau masak ayam bakar atau goreng di rumah. \r\nAyam Karkas adalah ayam potong utuh yang telah dibersihkan tanpa jeroan, ceker, kepala, darah, dan bulu. Semua ayam fresh yang dipotong di malam hari lalu dikirim keesokan harinya. Dilengkapi dengan sertifikasi Halal dan NKV, ayam karkas ini terbebas dari virus flu burung, higienis, serta melalui proses pemotongan yang modern dan terbebas dari zat berbahaya.', '1', NULL),
@@ -1083,7 +1083,7 @@ INSERT INTO `product` (`id`, `product_name`, `category`, `type`, `item`, `weight
 -- Table structure for table `product_category`
 --
 
-CREATE TABLE `product_category` (
+CREATE TABLE `product_categories` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `parent_id` int(11) DEFAULT NULL,
@@ -1097,7 +1097,7 @@ CREATE TABLE `product_category` (
 -- Dumping data for table `product_category`
 --
 
-INSERT INTO `product_category` (`id`, `name`, `parent_id`, `icon`, `icon_web`, `status`, `ordering`) VALUES
+INSERT INTO `product_categories` (`id`, `name`, `parent_id`, `icon`, `icon_web`, `status`, `ordering`) VALUES
 (1, 'Karkas', NULL, 'images/icon-2019-07-17-135811.png', 'images/icon-web-2019-07-17-114559.png', 1, 1),
 (2, 'Parting', NULL, 'images/icon-2019-07-17-135819.png', 'images/icon-web-2019-07-17-115344.png', 1, 2),
 (3, 'Boneless', NULL, 'images/icon-2019-07-17-135827.png', 'images/icon-web-2019-07-15-164941.jpg', 1, 3),

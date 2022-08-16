@@ -29,6 +29,7 @@ class CreateAgentsTable extends Migration
             $table->string('latitude', 100);
             $table->string('longitude', 100);
             $table->string('ktp');
+            $table->string('kk');
             $table->string('npwp');
             $table->string('no_rekening');
             $table->string('buku_rekening', 355);
