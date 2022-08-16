@@ -37,9 +37,9 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{Auth::user()->email}} <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="{{ route('customers.index') }}"><i class="fa fa-users"></i> Customer</a></li>
-                    <li><a href="{{ route('customers.index') }}"><i class="fa fa-coins"></i> Top 10 Produk</a></li>
-                    <li><a href="{{ route('customers.index') }}"><i class="fa fa-hand-holding-usd"></i> Top 10 Customer</a></li>
-                    <li><a href="{{ route('customers.index') }}"><i class="fa fa-cash-register"></i> Top 10 Agents</a></li>
+                    <li><a href="{{ route('top_product') }}"><i class="fa fa-coins"></i> Top 10 Produk</a></li>
+                    <li><a href="{{ route('top_customer') }}"><i class="fa fa-hand-holding-usd"></i> Top 10 Customer</a></li>
+                    <li><a href="{{ route('top_agents') }}"><i class="fa fa-cash-register"></i> Top 10 Agents</a></li>
                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> {{ __('Logout') }} </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

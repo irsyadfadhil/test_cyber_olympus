@@ -17,4 +17,9 @@ class order_detail extends Model
     'price_agent',
     'qty',
     'total_price'];
+
+    public function product()
+    {
+        return $this->belongsTo(product::class, 'product_id','id');
+    }
 }

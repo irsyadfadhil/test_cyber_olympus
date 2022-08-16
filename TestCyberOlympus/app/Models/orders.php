@@ -43,4 +43,14 @@ class orders extends Model
         'delivery_date',
         'order_time',
         'status'];
+
+    public function user()
+    {
+        return $this->belongsTo(data_user::class, 'customer_id','id');
+    }
+
+    public function agents()
+    {
+        return $this->belongsTo(agent::class, 'agent_id','id');
+    }
 }

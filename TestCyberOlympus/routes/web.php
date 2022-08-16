@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CustomerController;
-
+use App\Http\Controllers\TopDataController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +30,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('customers/destroy/{id}', [CustomerController::class, 'destroy']);
     Route::get('customers/edit/{id}', [CustomerController::class, 'edit']);
     Route::get('customers/update/{id}', [CustomerController::class, 'update']);
-
     Route::resource('customers', CustomerController::class)->except(['show'])->parameters(['customers' => 'customers']);
+
+    Route::get('top_data/top_product', [TopDataController::class, 'top_product'])->name('top_product');
+    Route::get('top_data/top_customer', [TopDataController::class, 'top_customer'])->name('top_customer');
+    Route::get('top_data/top_agents', [TopDataController::class, 'top_agents'])->name('top_agents');
 });
