@@ -40,6 +40,7 @@
                     <li><a href="{{ route('top_product') }}"><i class="fa fa-coins"></i> Top 10 Produk</a></li>
                     <li><a href="{{ route('top_customer') }}"><i class="fa fa-hand-holding-usd"></i> Top 10 Customer</a></li>
                     <li><a href="{{ route('top_agents') }}"><i class="fa fa-cash-register"></i> Top 10 Agents</a></li>
+                    <li><a href="{{ route('data_order') }}"><i class="fa fa-truck"></i> list daftar order</a></li>
                     <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> {{ __('Logout') }} </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

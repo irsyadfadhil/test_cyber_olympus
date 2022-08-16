@@ -53,4 +53,9 @@ class orders extends Model
     {
         return $this->belongsTo(agent::class, 'agent_id','id');
     }
+
+    public function detail_orders()
+    {
+        return $this->belongsTo(order_detail::class, 'id','order_id');
+    }
 }

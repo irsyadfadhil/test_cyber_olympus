@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TopDataController;
+use App\Http\Controllers\DataOrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,4 +36,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('top_data/top_product', [TopDataController::class, 'top_product'])->name('top_product');
     Route::get('top_data/top_customer', [TopDataController::class, 'top_customer'])->name('top_customer');
     Route::get('top_data/top_agents', [TopDataController::class, 'top_agents'])->name('top_agents');
+
+    Route::get('data_order', [DataOrderController::class, 'index'])->name('data_order');
 });
