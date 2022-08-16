@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('customers', CustomerController::class)->parameters(['customers' => 'customers']);
+    Route::get('customers/list', [CustomerController::class, 'list']);
+    Route::get('customers/destroy/{id}', [CustomerController::class, 'destroy']);
+
+});
