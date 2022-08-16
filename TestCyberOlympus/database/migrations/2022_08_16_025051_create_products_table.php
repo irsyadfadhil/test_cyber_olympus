@@ -30,21 +30,6 @@ class CreateProductsTable extends Migration
             $table->string('status', 10);
             $table->integer('ordering');
             $table->timestamps();
-            // `id` int(11) NOT NULL,
-            // `product_name` varchar(255) DEFAULT NULL,
-            // `category` int(11) DEFAULT NULL,
-            // `type` varchar(30) DEFAULT NULL,
-            // `item` varchar(30) DEFAULT NULL,
-            // `weight` float DEFAULT NULL,
-            // `sku` varchar(100) DEFAULT NULL,
-            // `price_sell` double DEFAULT NULL,
-            // `price_promo` double DEFAULT NULL,
-            // `price_agent` double DEFAULT NULL,
-            // `photo` varchar(300) DEFAULT NULL,
-            // `recommendation` varchar(20) DEFAULT NULL,
-            // `description` text DEFAULT NULL,
-            // `status` varchar(10) DEFAULT NULL,
-            // `ordering` int(11) DEFAULT NULL
         });
     }
 
