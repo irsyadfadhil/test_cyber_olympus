@@ -5,6 +5,7 @@ use App\Models\customer as model;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\customer;
+use App\Models\User;
 use Yajra\DataTables\Facades\DataTables;
 
 class CustomerController extends Controller
@@ -18,7 +19,7 @@ class CustomerController extends Controller
     {
 
         if ($request->ajax()) {
-            $data = Customer::latest()->get();
+            $data = User::get();
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -38,9 +39,22 @@ class CustomerController extends Controller
 
     public function store(Request $request)
     {
-        Customer::updateOrCreate(['id' => $request->Customer_id],
-                ['firstName' => $request->firstName, 'info' => $request->info]);
+        $user = New User;
+        $user->id = $request->Customer_id;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->save();
 
+        $cus = New Customer;
+        $cus->referral_id = $request->Customer_id;
+        $cus->address = $request->address;
+        $cus->save();
+
+        // User::updateOrCreate(['id' => $request->Customer_id],
+        //         ['name' => $request->name, 'phone' => $request->phone]);
+        // Customer::updateOrCreate(['referral_id' => $request->Customer_id],
+        //         ['address' => $request->address]);
         return response()->json(['success'=>'Customer saved successfully!']);
     }
 

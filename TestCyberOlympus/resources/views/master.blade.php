@@ -14,6 +14,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+
+@section('content')
     <div class="container">
         <div class="col-md-12">
         <nav class="navbar navbar-default">

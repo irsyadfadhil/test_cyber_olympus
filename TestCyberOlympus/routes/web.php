@@ -24,8 +24,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('customers', CustomerController::class)->parameters(['customers' => 'customers']);
+
+    Route::get('customers/store', [CustomerController::class, 'store']);
     Route::get('customers/list', [CustomerController::class, 'list']);
     Route::get('customers/destroy/{id}', [CustomerController::class, 'destroy']);
+    Route::get('customers/edit/{id}', [CustomerController::class, 'edit']);
 
+    Route::resource('customers', CustomerController::class)->except(['show'])->parameters(['customers' => 'customers']);
 });

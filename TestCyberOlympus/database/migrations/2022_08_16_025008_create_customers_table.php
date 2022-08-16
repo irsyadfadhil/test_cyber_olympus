@@ -17,17 +17,17 @@ class CreateCustomersTable extends Migration
             $table->id();
             $table->integer('referral_id');
             $table->string('address', 500);
-            $table->string('kelurahan');
-            $table->string('kecamatan');
-            $table->string('kota');
-            $table->string('provinsi');
-            $table->string('kode_pos', 10);
-            $table->string('latitude', 100);
-            $table->string('longitude', 100);
-            $table->string('no_rekening');
-            $table->string('buku_rekening', 350);
-            $table->integer('point');
-            $table->integer('default_address');
+            $table->string('kelurahan')->nullable();
+            $table->string('kecamatan')->nullable();
+            $table->string('kota')->nullable();
+            $table->string('provinsi')->nullable();
+            $table->string('kode_pos', 10)->nullable();
+            $table->string('latitude', 100)->nullable();
+            $table->string('longitude', 100)->nullable();
+            $table->string('no_rekening')->nullable();
+            $table->string('buku_rekening', 350)->nullable();
+            $table->integer('point')->nullable();
+            $table->integer('default_address')->nullable();
             $table->timestamps();
         });
     }
