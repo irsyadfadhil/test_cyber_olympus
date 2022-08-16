@@ -30,14 +30,14 @@ class TopDataController extends Controller
                 ->get();
 
 
-        return $data_detail;
-        return view('customers.index', compact('data_detail'));
+        // return $data_detail;
+        return view('top_data.top_produk', compact('data_detail'));
     }
 
     public function top_customer()
     {
 
-            $data_customer = orders::with('user:id,first_name')
+            $data_customer = orders::with('user:id,first_name,last_name')
                 ->select('customer_id', DB::raw('sum(payment_total) as total'))
                 ->groupBy('customer_id')
                 ->limit(10)
@@ -45,8 +45,8 @@ class TopDataController extends Controller
                 ->get();
 
 
-        return $data_customer;
-        return view('customers.index', compact('data_customer'));
+        // return $data_customer;
+        return view('top_data.top_customer', compact('data_customer'));
     }
 
     public function top_agents()
@@ -60,8 +60,8 @@ class TopDataController extends Controller
                 ->get();
 
 
-        return $data_agent;
-        return view('customers.index', compact('data_customer'));
+        // return $data_agent;
+        return view('top_data.top_agent', compact('data_agent'));
     }
 
 }
