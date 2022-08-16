@@ -22,15 +22,6 @@ class CreateOrderDetailsTable extends Migration
             $table->integer('qty');
             $table->double('total_price');
             $table->timestamps();
-            // CREATE TABLE `order_detail` (
-            //     `id` int(11) NOT NULL,
-            //     `product_id` int(11) DEFAULT NULL,
-            //     `order_id` int(11) DEFAULT NULL,
-            //     `price` double DEFAULT NULL,
-            //     `price_agent` double DEFAULT NULL,
-            //     `qty` int(11) DEFAULT NULL,
-            //     `total_price` double DEFAULT NULL
-            //   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
         });
     }
 

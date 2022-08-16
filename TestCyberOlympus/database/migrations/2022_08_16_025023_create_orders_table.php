@@ -48,40 +48,6 @@ class CreateOrdersTable extends Migration
             $table->dateTime('order_time');
             $table->string('status', 10);
             $table->timestamps();
-
-            // `id` int(11) NOT NULL,
-            // `invoice_id` varchar(50) DEFAULT NULL,
-            // `customer_id` int(11) DEFAULT NULL,
-            // `name` varchar(255) DEFAULT NULL,
-            // `phone` varchar(50) DEFAULT NULL,
-            // `address` varchar(500) DEFAULT NULL,
-            // `kelurahan` varchar(255) DEFAULT NULL,
-            // `kecamatan` varchar(255) DEFAULT NULL,
-            // `kota` varchar(255) DEFAULT NULL,
-            // `provinsi` varchar(255) DEFAULT NULL,
-            // `kode_pos` varchar(10) DEFAULT NULL,
-            // `latitude` varchar(100) DEFAULT NULL,
-            // `longitude` varchar(100) DEFAULT NULL,
-            // `agent_id` int(11) DEFAULT NULL,
-            // `agent_name` varchar(255) DEFAULT NULL,
-            // `payment_method` varchar(255) DEFAULT NULL,
-            // `payment_link` varchar(255) DEFAULT NULL,
-            // `payment_date` datetime DEFAULT NULL,
-            // `buy_by` varchar(100) DEFAULT NULL,
-            // `payment_total` double DEFAULT NULL,
-            // `coupon_id` int(11) DEFAULT NULL,
-            // `payment_discount_code` varchar(30) DEFAULT NULL,
-            // `payment_discount` double DEFAULT NULL,
-            // `payment_final` double DEFAULT NULL,
-            // `order_weight` float DEFAULT NULL,
-            // `order_distance` float DEFAULT 0,
-            // `delivery_status` int(11) DEFAULT NULL,
-            // `delivery_fee` double DEFAULT NULL,
-            // `delivery_track` varchar(255) DEFAULT NULL,
-            // `delivery_time` varchar(100) DEFAULT NULL,
-            // `delivery_date` varchar(50) DEFAULT NULL,
-            // `order_time` datetime DEFAULT NULL,
-            // `status` varchar(10) DEFAULT NULL
         });
     }
 

@@ -38,31 +38,6 @@ class CreateAgentsTable extends Migration
             $table->integer('max_load');
             $table->integer('default_agent');
             $table->timestamps();
-
-            // `id` int(11) NOT NULL,
-            // `store_name` varchar(255) DEFAULT NULL,
-            // `partner_id` varchar(50) DEFAULT NULL,
-            // `pin_lock` varchar(8) DEFAULT NULL,
-            // `store_open` time DEFAULT NULL,
-            // `store_close` time DEFAULT NULL,
-            // `address` varchar(500) DEFAULT NULL,
-            // `kelurahan` varchar(255) DEFAULT NULL,
-            // `kecamatan` varchar(255) DEFAULT NULL,
-            // `kota` varchar(255) DEFAULT NULL,
-            // `provinsi` varchar(255) DEFAULT NULL,
-            // `kode_pos` varchar(10) DEFAULT NULL,
-            // `latitude` varchar(100) DEFAULT NULL,
-            // `longitude` varchar(100) DEFAULT NULL,
-            // `ktp` varchar(255) DEFAULT NULL,
-            // `kk` varchar(255) DEFAULT NULL,
-            // `npwp` varchar(255) DEFAULT NULL,
-            // `no_rekening` varchar(255) DEFAULT NULL,
-            // `buku_rekening` varchar(355) DEFAULT NULL,
-            // `point` int(11) DEFAULT NULL,
-            // `credit_limit` double DEFAULT NULL,
-            // `subscription` varchar(255) DEFAULT NULL,
-            // `max_load` int(11) DEFAULT NULL,
-            // `default_agent` int(11) DEFAULT 0
         });
     }
 
