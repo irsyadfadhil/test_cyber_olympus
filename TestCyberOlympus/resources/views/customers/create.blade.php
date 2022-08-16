@@ -6,10 +6,9 @@
             </div>
             <div class="modal-body">
                 <form id="CustomerForm" name="CustomerForm" class="form-horizontal">
-                   {{-- <input type="hidden" name="Customer_id" id="Customer_id"> --}}
 
                    <div class="form-group">
-                        <label for="Customer_id" class="col-sm-3 control-label">Customer id</label>
+                        <label for="label_cus" class="col-sm-3 control-label">Customer id</label>
                         <div class="col-sm-12">
                             <input type="text" class="form-control" id="Customer_id" name="Customer_id" placeholder="Masukan Customer id" value="" maxlength="50" required="">
                         </div>

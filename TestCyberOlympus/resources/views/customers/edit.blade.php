@@ -16,16 +16,16 @@
                     </div> --}}
 
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">First Name</label>
+                        <label for="name" class="col-sm-12 control-label">First Name</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="first_name_edi" name="first_name_edi" placeholder="Masukan First Name" value="" maxlength="50" required="">
+                            <input type="text" class="form-control" id="first_name_edit" name="first_name_edit" placeholder="Masukan First Name" value="" maxlength="50" required="" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Last Name</label>
+                        <label for="name" class="col-sm-12 control-label">Last Name</label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="last_name_edi" name="last_name_edi" placeholder="Masukan Last Name" value="" maxlength="50" required="">
+                            <input type="text" class="form-control" id="last_name_edit" name="last_name_edit" placeholder="Masukan Last Name" value="" maxlength="50" required="" readonly>
                         </div>
                     </div>
 

@@ -31,8 +31,8 @@ class CreateUsersTable extends Migration
             $table->string('account_status')->nullable();
             $table->string('fcm_token')->nullable();
             $table->rememberToken();
-            $table->string('password_reset_code');
-            $table->string('device_token');
+            $table->string('password_reset_code')->nullable();
+            $table->string('device_token')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

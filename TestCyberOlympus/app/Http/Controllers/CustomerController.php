@@ -41,7 +41,6 @@ class CustomerController extends Controller
     {
         $data_user = $request->Customer_id;
         $cek_user = User::where('id', $data_user)->count();
-        // return $cek_user ;
         if ($cek_user > 0 ) {
             $user = User::where('id', $request->Customer_id)->first();
             $user->first_name = $request->first_name;
@@ -49,7 +48,7 @@ class CustomerController extends Controller
             $user->phone = $request->phone;
             $user->save();
 
-            $cus = Customer::where('referral_id', $user->id)->first();
+            $cus = Customer::where('id', $user->id)->first();
             $cus->address = $request->address;
             $cus->save();
 
@@ -66,7 +65,8 @@ class CustomerController extends Controller
             $user->account_role = 'customer';
             $user->save();
 
-            $cus = New Customer;
+            $cus = New customer;
+            $cus->id = $request->Customer_id;
             $cus->referral_id = $request->Customer_id;
             $cus->address = $request->address;
             $cus->save();

@@ -56,9 +56,9 @@
     $('#createNewCustomer').click(function () {
         $('#saveBtn').val("create-Customer");
         $('#Customer_id').val('');
-        $('#email').show();
+        $('#Customer_id').show();
+        $('#Customer_id_label').show();
         $('#email_label').show();
-
         $('#CustomerForm').trigger("reset");
         $('#modelHeading').html("Create New Customer");
         $('#ajaxModel').modal('show');
@@ -70,11 +70,12 @@
           $('#modelHeading').html("Edit Customer");
           $('#saveBtn').val("edit-user");
           $('#ajaxModel').modal('show');
+          $('#label_cus').hide();
+          $('#Customer_id').hide();
           $('#Customer_id').val(data.id);
           $('#first_name').val(data.first_name);
           $('#last_name').val(data.last_name);
-          $('#email').hide();
-          $('#email_label').hide();
+          $('#email').val(data.email);
           $('#phone').val(data.phone);
           $('#address').val(data.address);
       })
