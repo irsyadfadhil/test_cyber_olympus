@@ -3,7 +3,7 @@
   <h2 align="center">Aplikasi Tes Cyber Olympus</h2>
 </p>
 
-# Link API Untuk DEMO 
+# Link Untuk DEMO 
 ```
 Halaman Awal http://localhost:8000/ 
 Buat Login http://localhost::8000/login
